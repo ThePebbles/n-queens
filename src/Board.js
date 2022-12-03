@@ -29,6 +29,10 @@
       this.trigger('change');
     },
 
+    clearBoard: function() {
+      this.set(makeEmptyMatrix(this.get('n')));
+    },
+
     _getFirstRowColumnIndexForMajorDiagonalOn: function(rowIndex, colIndex) {
       return colIndex - rowIndex;
     },
@@ -156,7 +160,6 @@
         //increase row by 1
         //take
         for (var x = 0; x < this.get('n'); x++) {
-          console.log('Row: ', row + rowChange, 'Column: ', column);
           if (this.get(row + rowChange)) {
             if (this.get(row + rowChange)[column]) {
               count++;
@@ -210,7 +213,6 @@
         //increase row by 1
         //take
         for (var x = this.get('n') - 1; x >= 0; x--) {
-          console.log('Row: ', row + rowChange, 'Column: ', column);
           if (this.get(row + rowChange)) {
             if (this.get(row + rowChange)[column]) {
               count++;
